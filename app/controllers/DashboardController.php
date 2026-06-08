@@ -9,9 +9,11 @@ class DashboardController extends BaseController
     {
         $this->requireAuth();   // Bloqueia quem não esteja logado
 
-        $this->view('dashboard/index', [
-            'nome' => $_SESSION['user_nome'],
-            'tipo' => $_SESSION['user_tipo'],
+        $this->layout('dashboard/index', [
+            'pageTitle'     => 'Dashboard',
+            'activeMenu'    => 'dashboard',
+            'nome'          => $_SESSION['user_nome'],
+            'tipo'          => $_SESSION['user_tipo'],
         ]);
     }
 }

@@ -26,6 +26,29 @@ abstract class BaseController
     }
 
     /**
+     * Renderiza uma view DENTRO do layout administrativo.
+     * Captura o conteúdo da view em buffer e injeta no layout como $content.
+     */
+    protected function layout(string $viewName, array $data = []): void
+    {
+        extract($data);
+
+        $viewFile = APP_PATH . "/views/{$viewName}.php";
+        if (!file_exists($viewFile)) {
+            http_response_code(500);
+            die("View não encontrada: {$viewName}");
+        }
+
+        // 1. Caputra o output da view em variável
+        ob_start();
+        require $viewFile;
+        $content = ob_get_clean();
+
+        // 2. Renderiza o layout (que usa $content e outras variáveis extraídas)
+        require APP_PATH . '/views/layouts/admin.php';
+    }
+
+    /**
      * Redireciona para outra URL e encerra a execução.
      */
     protected function redirect(string $url): void
