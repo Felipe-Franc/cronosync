@@ -34,7 +34,7 @@ Veja [SETUP.md](SETUP.md) para instruções de instalação local.
 - [x] Estrutura base, banco de dados e PDO
 - [x] Autenticação, sessões e proteção de rotas
 - [x] Layout administrativo (sidebar + mobile)
-- [ ] CRUD de Clientes/Leads e Serviços
+- [x] CRUD de Clientes/Leads e Serviços
 - [ ] Módulo Agenda com validação de conflito
 - [ ] Financeiro e Dashboard com KPIs
 - [ ] Relatórios
