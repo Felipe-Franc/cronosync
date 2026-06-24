@@ -49,5 +49,16 @@ $router->get('/logout', [AuthController::class, 'logout']);
 $router->get('/',           [DashboardController::class, 'index']);
 $router->get('/dashboard',  [DashboardController::class, 'index']);
 
+// ============================================
+// CLIENTES — CRUD completo
+// ============================================
+$router->get('/clientes',                  [ClientesController::class, 'index']);
+$router->get('/clientes/novo',             [ClientesController::class, 'novo']);
+$router->post('/clientes',                 [ClientesController::class, 'create']);
+$router->get('/clientes/{id}',             [ClientesController::class, 'show']);
+$router->get('/clientes/{id}/editar',      [ClientesController::class, 'editar']);
+$router->post('/clientes/{id}',            [ClientesController::class, 'update']);
+$router->post('/clientes/{id}/excluir',    [ClientesController::class, 'excluir']);
+
 // Despacha a requisição atual
 $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
